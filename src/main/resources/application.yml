@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/projectsapp
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
+
+jwt:
+   secret: Q2hHc2p5d0p5b3J2b3J5d2Vyd2Vhc2VjdXJlc2VjcmV0a2V5MTIzNDU2Nzg5IQ==
+   expiration: 3600000
