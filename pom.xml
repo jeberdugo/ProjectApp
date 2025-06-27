@@ -118,6 +118,11 @@
             <artifactId>postgresql</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -167,6 +172,28 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>frontend-build</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>cd frontend &amp;&amp; npm install &amp;&amp; npm run build &amp;&amp; cd .. &amp;&amp; mkdir -p src/main/resources/static &amp;&amp; cp -r frontend/out/* src/main/resources/static/ 2>/dev/null || echo 'Frontend build skipped - files not found'</argument>
+                            </arguments>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

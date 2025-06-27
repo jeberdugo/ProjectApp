@@ -26,10 +26,16 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900" data-testid="loading-spinner"></div>
       </div>
     )
   }
 
-  return <>{children}</>
+  // Only render children if authenticated OR on a public route
+  if (isAuthenticated || publicRoutes.includes(pathname)) {
+    return <>{children}</>
+  }
+
+  // Don't render anything for unauthenticated users on protected routes
+  return null
 }

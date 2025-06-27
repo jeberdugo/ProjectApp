@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -103,6 +103,9 @@ export function TaskDialog({ open, onOpenChange, task, projectId, onSave }: Task
       <DialogContent className="max-w-2xl">
         <DialogHeader>
           <DialogTitle>{task ? "Edit Task" : "Create New Task"}</DialogTitle>
+          <DialogDescription>
+            {task ? "Update task details" : "Create a new task for this project"}
+          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -133,7 +136,7 @@ export function TaskDialog({ open, onOpenChange, task, projectId, onSave }: Task
                 value={formData.status}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, status: value as any }))}
               >
-                <SelectTrigger>
+                <SelectTrigger id="status">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -151,7 +154,7 @@ export function TaskDialog({ open, onOpenChange, task, projectId, onSave }: Task
                 value={formData.priority}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, priority: value as any }))}
               >
-                <SelectTrigger>
+                <SelectTrigger id="priority">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

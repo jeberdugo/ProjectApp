@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -81,6 +81,9 @@ export function ProjectDialog({ open, onOpenChange, project, onSave }: ProjectDi
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{project ? "Edit Project" : "Create New Project"}</DialogTitle>
+          <DialogDescription>
+            {project ? "Update project details" : "Create a new project to organize your tasks"}
+          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +113,7 @@ export function ProjectDialog({ open, onOpenChange, project, onSave }: ProjectDi
               value={formData.status}
               onValueChange={(value) => setFormData((prev) => ({ ...prev, status: value as any }))}
             >
-              <SelectTrigger>
+              <SelectTrigger id="status">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

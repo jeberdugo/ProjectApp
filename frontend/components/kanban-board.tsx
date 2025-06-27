@@ -88,12 +88,16 @@ export function KanbanBoard({ projectId }: KanbanBoardProps) {
 
   const handleDragStart = (e: React.DragEvent, task: TaskResponse) => {
     setDraggedTask(task)
-    e.dataTransfer.effectAllowed = "move"
+    if (e.dataTransfer) {
+      e.dataTransfer.effectAllowed = "move"
+    }
   }
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
-    e.dataTransfer.dropEffect = "move"
+    if (e.dataTransfer) {
+      e.dataTransfer.dropEffect = "move"
+    }
   }
 
   const handleDrop = (e: React.DragEvent, status: string) => {

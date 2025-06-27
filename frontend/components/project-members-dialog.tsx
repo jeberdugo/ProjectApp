@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -175,6 +175,9 @@ export function ProjectMembersDialog({ open, onOpenChange, projectId, projectNam
             <User className="h-5 w-5" />
             Project Members - {projectName}
           </DialogTitle>
+          <DialogDescription>
+            Manage project members and their roles
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
@@ -203,7 +206,7 @@ export function ProjectMembersDialog({ open, onOpenChange, projectId, projectNam
                       value={newMember.role}
                       onValueChange={(value) => setNewMember((prev) => ({ ...prev, role: value as any }))}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger id="role">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>

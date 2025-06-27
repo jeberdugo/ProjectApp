@@ -36,7 +36,15 @@ public class SecurityConfig {
                 .requestMatchers(
                         "/api/auth/**",
                         "/swagger-ui/**",
-                        "/v3/api-docs/**"
+                        "/v3/api-docs/**",
+                        "/",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "/**/*.png",
+                        "/**/*.jpg",
+                        "/**/*.ico",
+                        "/static/**"
                 ).permitAll()
                 .requestMatchers("/api/projects/**", "/api/tasks/**", "/api/labels/**").authenticated()
                 .anyRequest().authenticated()
@@ -48,7 +56,8 @@ public class SecurityConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:3000"); // O "*" para permitir todos (solo en desarrollo)
+        config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("http://localhost:8080");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
