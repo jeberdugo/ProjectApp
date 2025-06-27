@@ -26,7 +26,7 @@ Una aplicación completa de gestión de proyectos tipo Trello construida con Spr
 - Maven 3.6+
 - IDE (IntelliJ IDEA, Eclipse, VS Code)
 
-## 🔧 Instalación
+## 🔧 Instalación Backend
 
 1. **Clonar el repositorio**
    ```bash
@@ -48,6 +48,21 @@ Una aplicación completa de gestión de proyectos tipo Trello construida con Spr
    - API: http://localhost:8080
    - Swagger UI: http://localhost:8080/swagger-ui/index.html
    - H2 Console: http://localhost:8080/h2-console
+
+## 🔧 Instalación Frontend
+
+1. **Instalar dependencias**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **Ejecutar la aplicación**
+   ```bash
+   npm run dev
+   ```
+3. **Acceder a la aplicación**
+   - App: http://localhost:3000
 
 ## 📚 API Endpoints
 
@@ -192,25 +207,3 @@ mvn spring-boot:run
 mvn clean package
 java -jar target/projectapp-0.0.1-SNAPSHOT.jar
 ```
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
-
-## 📞 Soporte
-
-Para soporte técnico o preguntas, contacta a:
-- Email: support@example.com
-- Issues: [GitHub Issues](https://github.com/your-repo/issues)
-
----
-
-**¡Disfruta usando tu aplicación de gestión de proyectos! 🎉** 
